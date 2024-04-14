@@ -6,11 +6,11 @@ const app = express();
 const port = process.env.PORT || 5000; // Use the dynamic port assigned by Heroku or default to 5000
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('./'));
+app.use(express.static('project1'));
 
 function loadPreDefinedValues() {
   try {
-    return JSON.parse(fs.readFileSync('/project1/preDefinedValues.json', 'utf8'));
+    return JSON.parse(fs.readFileSync('project1/preDefinedValues.json', 'utf8'));
   } catch (err) {
     console.error('Error loading pre-defined values:', err);
     return {}; 
@@ -51,14 +51,3 @@ app.post('/signin', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
-
-
-
-
-
-
-
-
-
-
-
