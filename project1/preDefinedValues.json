@@ -1,0 +1,16 @@
+{
+    "signupInfo": [
+      {
+        "name": "Naman",
+        "email": "naman.prakash@lpu.in",
+        "password": "123",
+        "phone": "7064567898"
+      },
+      {
+        "name": "Utkarsh",
+        "email": "utkarsh.sinha@lpu.in",
+        "password": "123",
+        "phone": "0745234567"
+      }
+    ]
+  }
