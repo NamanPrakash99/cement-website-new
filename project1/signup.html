@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +25,7 @@
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            margin: auto;
         }
 
         h1 {
@@ -90,10 +92,11 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Sign Up</h1>
-        <form action="#" method="POST">
+        <form id="signup-form" action="/signup" method="POST">
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Enter your username" required>
@@ -114,5 +117,37 @@
             Already have an account? <a href="http://localhost:5000/login-registration">Log in here</a>
         </div>
     </div>
+
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById('signup-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form data
+            const formData = new FormData(this);
+
+            // Send form data to server using fetch API
+            fetch('/signup', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Registration successful
+                        alert('Registration successful!');
+                        // Optionally, redirect user to another page
+                        // window.location.href = '/success-page.html';
+                    } else {
+                        // Registration failed
+                        alert('Registration Sucessful!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                });
+        });
+    </script>
 </body>
+
 </html>
